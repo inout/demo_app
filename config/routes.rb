@@ -1,4 +1,8 @@
 Merlin::Application.routes.draw do
+  resources :leaves do as_routes end
+
+  resources :leaves
+
   resources :users do as_routes end
 
   resources :users
