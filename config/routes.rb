@@ -1,4 +1,8 @@
 Merlin::Application.routes.draw do
+  resources :teams do as_routes end
+
+  resources :teams
+
   resources :leaves do as_routes end
 
   resources :leaves
