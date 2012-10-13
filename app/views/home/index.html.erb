@@ -1,5 +1,10 @@
 <center><h1>Welcome User!!</h1></center>
 
+<br /><ul class="hmenu">
+  <%= render 'devise/menu/registration_items' %>
+  <%= render 'devise/menu/login_items' %>
+</ul>
+
 <%= link_to 'Users', 'users/' %><br>
 <%= link_to 'Show Leaves', 'leaves/' %> <br>
 <%= link_to 'Teams', 'teams/' %> <br>
