@@ -10,6 +10,8 @@ group :assets do
 	gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'devise'
+gem 'devise_ldap_authenticatable'
 gem 'jquery-rails'
 
 group :development, :test do
