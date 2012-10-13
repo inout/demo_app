@@ -6,4 +6,5 @@ class LeavesController < ApplicationController
     config.actions.exclude :create
   end  
   
+  before_filter :authenticate_user!
 end 
