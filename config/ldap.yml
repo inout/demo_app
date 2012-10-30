@@ -14,8 +14,8 @@ development:
   port: 389
   attribute: sAMAccountName
   base: ou=dev.vertisinfotech.com,dc=vertisinfotech,dc=com
-  admin_user: cn=Chaitanya Bharambe,dc=vertisinfotech,dc=com
-  admin_password: chaI1#2$
+  admin_user: cn=Chaitanya Bharambe,ou=admin.vertisinfotech.com,dc=vertisinfotech,dc=com
+  admin_password: chai$$32
   ssl: false
 
   # <<: *AUTHORIZATIONS

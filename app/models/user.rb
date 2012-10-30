@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :leave, :inverse_of => :user, :dependent => :destroy
   
   before_save :get_ldap_first_name, :get_ldap_last_name, :get_ldap_email
-
+   
   def get_ldap_email
     self.email = Devise::LdapAdapter.get_ldap_param(self.user_name,"mail")
   end

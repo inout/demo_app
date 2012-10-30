@@ -1,4 +1,7 @@
-<center><h1>Welcome User!!</h1></center>
+<% if user_signed_in? %>
+  <center><h1>Welcome <%= current_user.user_name %> !!</h1></center>
+<% end %>
+
 
 <br /><ul class="hmenu">
   <%= render 'devise/menu/registration_items' %>
