@@ -1,11 +1,30 @@
-<br /><ul class="hmenu">
-  <%= render 'devise/menu/registration_items' %>
+<div class="pull-right">
   <%= render 'devise/menu/login_items' %>
+</div>
+
+
+<center>
+  <h1>Welcome!! <%= @user.user_name %></h1>
+</center>  
+
+<ul class='nav nav-pills'>
+  <li class='active'>
+    <%= link_to 'Home', 'home/' %><br>
+  <li>
+    <%= link_to 'Users', 'users/' %><br>    
+  </li>
+  <li>
+    <%= link_to 'Show Leaves', 'leaves/' %> <br>
+  </li>
+  <li>
+    <%= link_to 'Teams', 'teams/' %> <br>    
+  </li>
+  <li>
+    <%= link_to 'Request Leave', { :controller => 'users', :action => 'request_leave', :id => 3 } %>
+  </li>
 </ul>
 
-<center><h1>Welcome User!!</h1></center>
 
-<%= link_to 'Users', 'users/' %><br>
-<%= link_to 'Show Leaves', 'leaves/' %> <br>
-<%= link_to 'Teams', 'teams/' %> <br>
-<%= link_to 'Request Leave', { :controller => 'users', :action => 'request_leave', :id => 1 } %>
+
+
+

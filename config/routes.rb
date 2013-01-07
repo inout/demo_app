@@ -14,8 +14,7 @@ Merlin::Application.routes.draw do
   resources :users
   
   match 'home/' => 'home#index'
-  match 'users/request_leave' => 'users#request_leave'
-  
+    
   match 'users/:id/request_leave' => 'users#request_leave'
   
   root :to => 'home#index'

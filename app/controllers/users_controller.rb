@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def request_leave
-    @user_id = params[:id]
+   
     
     
   end
