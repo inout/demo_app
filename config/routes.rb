@@ -1,5 +1,7 @@
 Merlin::Application.routes.draw do
-  devise_for :users
+  resources :roles do as_routes end
+
+  devise_for :users,  :controllers => { :registrations => "users/registrations" }
 
   resources :teams do as_routes end
 
@@ -11,8 +13,6 @@ Merlin::Application.routes.draw do
 
   resources :users do as_routes end
 
-  resources :users
-  
   match 'home/' => 'home#index'
     
   match 'users/:id/request_leave' => 'users#request_leave'

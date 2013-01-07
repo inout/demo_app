@@ -11,6 +11,7 @@ group :assets do
 end
 
 gem 'devise'
+gem 'cancan'
 gem 'devise_ldap_authenticatable'
 gem 'jquery-rails'
 gem 'mysql2'

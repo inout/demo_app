@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013134428) do
+ActiveRecord::Schema.define(:version => 20130107020620) do
 
   create_table "leaves", :force => true do |t|
     t.integer  "user_id"
@@ -27,11 +27,33 @@ ActiveRecord::Schema.define(:version => 20121013134428) do
     t.datetime "updated_at",                    :null => false
   end
 
+  add_index "leaves", ["user_id"], :name => "index_leaves_on_user_id"
+
+  create_table "roles", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "teams_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+  end
+
+  add_index "teams_users", ["team_id"], :name => "index_teams_users_on_team_id"
+  add_index "teams_users", ["user_id"], :name => "index_teams_users_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
@@ -44,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20121013134428) do
     t.boolean  "is_active"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
+    t.string   "email"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
