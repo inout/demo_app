@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<title>Merlin</title>
+	</head>
+	<body>
+		<div class="logo">
+			<%= image_tag("vertis_logo.png")%>
+		</div>
+		<%= link_to "Home", :controller => "home" %>
+
+		<div id="content">
+			<%= yield %>
+		</div>
+	</body>
+</html>
+

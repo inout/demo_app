@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.9'
 
 gem 'active_scaffold', '3.2.7'
 
@@ -13,6 +13,7 @@ end
 gem 'devise'
 gem 'devise_ldap_authenticatable'
 gem 'jquery-rails'
+gem 'mysql2'
 
 group :development, :test do
 	gem 'sqlite3'
