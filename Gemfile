@@ -18,6 +18,7 @@ gem 'mysql2'
 gem "less-rails"
 gem 'therubyracer', '0.10.2'
 gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 
 group :development, :test do
 	gem 'sqlite3'
