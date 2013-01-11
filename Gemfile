@@ -14,6 +14,7 @@ gem 'devise'
 gem 'cancan'
 gem 'devise_ldap_authenticatable'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'mysql2'
 gem "less-rails"
 gem 'therubyracer', '0.10.2'
