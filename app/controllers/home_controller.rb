@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout 'main_layout'
+  
   def index
     @user = User.find(3);
   end

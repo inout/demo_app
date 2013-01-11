@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>  
+  </script>
+  <title>Merlin</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>  
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class='navbar-inner'>   
+      <div class="container">   
+        <a class="brand" href="#">Vertis Leave System</a>  
+        <div class="nav-collapse collapse">
+          <ul class="nav nav-pills">
+            <li class="<%= 'active' if params[:controller] == 'home' %>">
+              <%= link_to 'Home', { :controller => 'home', :action => 'index' } %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'users' && params[:action] == 'index' %>">
+              <%= link_to 'Users', { :controller => 'users', :action => 'index' } %>    
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'leaves' %>">
+              <%= link_to 'Leaves', { :controller => 'leaves', :action => 'index' } %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'teams' %>">
+              <%= link_to 'Teams', { :controller => 'teams', :action => 'index' } %>    
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'users' && params[:action] == 'request_leave' %>">
+              <%= link_to 'Request Leave', { :controller => 'users', :action => 'request_leave', :id => 3 } %>
+            </li>
+          </ul>
+          <div class='pull-right'>
+              <%= render 'devise/menu/login_items' %>
+          </div>
+        </div>  
+      </div>                           
+    </div>
+  </div>  
+ 
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
+  
+  <div class='container'>
+    <%= yield %>
+  </div>
+
+</body>
+</html>

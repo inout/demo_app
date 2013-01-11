@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'main_layout'
+  
   active_scaffold :user do |config|
     config.columns = [
       :first_name, :last_name, :user_name, :email, :encrypted_password, :mobile, :phone, :birth_date, :joining_date, 

@@ -8,11 +8,17 @@
 </head>
 <body>
 
-  <div class="notice"><%= notice %></div>
-  <div class="alert"><%= alert %></div>
-
-
-<%= yield %>
+  <% if not notice.nil? %>
+    <div class="<%= 'notice' if not notice.nil? %>">
+      <%= notice %>
+    </div>
+  <% end %>
+  
+  <div class="<%= 'alert' if not alert.nil? %>">
+    <%= alert %>
+  </div>
+  
+  <%= yield %>
 
 </body>
 </html>
