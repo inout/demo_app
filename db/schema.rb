@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107020620) do
+ActiveRecord::Schema.define(:version => 20130112081922) do
 
   create_table "leaves", :force => true do |t|
     t.integer  "user_id"
@@ -19,12 +19,11 @@ ActiveRecord::Schema.define(:version => 20130107020620) do
     t.date     "end_date"
     t.string   "description"
     t.string   "status"
-    t.float    "unpaid_leaves"
-    t.float    "number_of_paid_leaves_taken"
-    t.float    "number_of_unpaid_leaves_taken"
-    t.float    "number_of_leaves_remaining"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.float    "paid_leaves_taken"
+    t.float    "unpaid_leaves_taken"
+    t.float    "leaves_remaining"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   add_index "leaves", ["user_id"], :name => "index_leaves_on_user_id"
@@ -59,8 +58,7 @@ ActiveRecord::Schema.define(:version => 20130107020620) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_name"
-    t.string   "mobile"
-    t.string   "phone"
+    t.string   "contact_no"
     t.date     "birth_date"
     t.date     "joining_date"
     t.boolean  "is_active"

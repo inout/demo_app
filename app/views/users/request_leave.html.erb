@@ -1,7 +1,7 @@
 <script>
 	function calcBusinessDays(dDate1, dDate2) { // input given as Date objects
 		var iWeeks, iDateDiff, iAdjust = 0;
-		if (dDate2 < dDate1) return -1; // error code if dates transposed
+		if (dDate2 < dDate1){ return -1; }// error code if dates transposed
 
 		var iWeekday1 = dDate1.getDay(); // day of week
 		var iWeekday2 = dDate2.getDay();
@@ -35,13 +35,14 @@
 			dateFormat:'MM dd,yy'
 		});
 	});
+
 </script>
 
 <table>
 	<tr>
 		<td>
 
-			<div class="leave_request">
+			<div>
 				<h2>&emsp;&emsp;&emsp;&emsp;Leave Request</h2>
 
 				<div style="width:110px">Requested By:</div> <input type=text size=20 ><br>
@@ -62,17 +63,26 @@
 
 		</td>
 		<td>
-			<div class="leave_details">
+			<div>
 				<h3> Your Leave Details :</h3>
 				<table>
 					<tr>
-						<td>Total Alloted : </td> <td><input type=text size=20 value="18"></td>
+						<td>Total Leaves Alloted &nbsp; : &nbsp;</td>
+						<td>
+							<input type=text size=20 value="18">
+						</td>
 					</tr>
 					<tr>
-						<td>Total Paid Leaves Taken : </td> <td><input type=text size=20 value="8"></td>
+						<td>Paid Leaves Remaining &nbsp; : &nbsp;</td>
+						<td>
+					    <input type=text size=20 value="<%= @paid_leaves_remaining %>">
+						</td>
 					</tr>
 					<tr>
-						<td>Total Unpaid Leaves : </td> <td><input type=text size=20 value="10"></td>
+						<td>Unpaid Leaves Taken&nbsp; : &nbsp;</td>
+						<td>
+							<input type=text size=20 value="<%= @unpaid_leaves_taken %>">
+						</td>
 					</tr>
 				</table>
 			</div>
