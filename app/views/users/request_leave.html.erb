@@ -21,14 +21,17 @@
 		}
 
 		iDateDiff -= iAdjust // take into account both days on weekend
-
-		return (iDateDiff + 1); // add 1 because dates are inclusive
+    if (isNaN(iDateDiff))  { return 0; }
+    return (iDateDiff + 1); // add 1 because dates are inclusive
 	}
 </script>
 
 <script>
 	$(document).ready(function () {
 		$("#noOfDays").val(calcBusinessDays(new Date($("#fromdate").val()),new Date($("#todate").val())));
+    $(".date").change(function(){
+      $("#noOfDays").val(calcBusinessDays(new Date($("#fromdate").val()),new Date($("#todate").val())));
+    });
 		$(".date").datepicker({
 			changeMonth:true,
 			changeYear:true,
@@ -38,6 +41,7 @@
 
 </script>
 
+<form action="<%= url_for(:controller => 'home', :action => 'index')%>" method="POST" >
 <table>
 	<tr>
 		<td>
@@ -45,7 +49,7 @@
 			<div>
 				<h2>&emsp;&emsp;&emsp;&emsp;Leave Request</h2>
 
-        <div style="width:110px">Requested By:</div> <input type=text size=20 value="<%= @user.user_name.capitalize %>"><br>
+        <div style="width:110px">Requested By:</div> <input type=text size=20 value="<%= @user.user_name.capitalize %>" disabled><br>
 
 				<br>
 				<label> From Date </label>
@@ -54,11 +58,11 @@
 				<label> To Date </label>
 				<input type="text" size=20 id="todate" class="date">
 				<br><br>
-				No. of days <input type="text" id="noOfDays" size=20>
+				No. of days <input type="text" id="noOfDays" size=20 on>
 				<br><br>
 				Description: <textarea name="Name" rows="8" cols="40"></textarea>
 				<br><br>
-				<input type=submit value="Send For Approval"> <input type=button value="Clear">
+				<input type=submit value="Send For Approval" > <input type=button value="Clear">
 			</div>
 
 		</td>
@@ -89,4 +93,5 @@
 
 		</td>
 	</tr>
+  </form>
 </table>
