@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   active_scaffold :user do |config|
     config.columns = [
-      :first_name, :last_name, :user_name, :email, :contact_no, :birth_date, :joining_date, :is_active
+      :first_name, :last_name, :user_name, :email, :encrypted_password, :contact_no, :birth_date, :joining_date, :is_active
     ]
     config.columns[:first_name].inplace_edit = true
     config.columns[:last_name].inplace_edit = true

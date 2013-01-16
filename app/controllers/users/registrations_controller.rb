@@ -6,10 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def create
-		puts "++++++++++++++++++++++++++++"
-		puts "in function create"
-		puts "++++++++++++++++++++++++++++"
-
 		if(params[:record])
 			User.transaction do
 				u = User.new
@@ -17,8 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 				u.first_name = params[:record][:first_name]
 				u.last_name = params[:record][:last_name]
 				u.is_active = params[:record][:is_active]
-				u.mobile = params[:record][:mobile]
-				u.phone = params[:record][:phone]
+				u.contact_no = params[:record][:contact_no]				
 				u.user_name = params[:record][:user_name]
 				u.is_active = params[:record][:is_active]
 				u.birth_date = params[:record][:birth_date]
@@ -29,10 +24,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 				u.password = params[:record][:encrypted_password]
 				u.reset_password_sent_at =  DateTime.current
 				u.reset_password_token = User.reset_password_token
-				u.save!
+				u.save
 			end
 
-			redirect_to "/users"
+			redirect_to "/home"
 		end
 
 		if(params[:user]) #When user is going to sign_up
