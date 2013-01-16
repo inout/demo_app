@@ -1,7 +1,12 @@
 <script>
+  function clearDate() {
+    document.getElementById('todate').value = "";
+    document.getElementById('fromdate').value = "";
+  }
+
 	function calcBusinessDays(dDate1, dDate2) { // input given as Date objects
 		var iWeeks, iDateDiff, iAdjust = 0;
-		if (dDate2 < dDate1){ return -1; }// error code if dates transposed
+		if (dDate2 < dDate1){ alert('Please enter valid date!'); clearDate(); return 0;}// error code if dates transposed
 
 		var iWeekday1 = dDate1.getDay(); // day of week
 		var iWeekday2 = dDate2.getDay();
@@ -41,7 +46,7 @@
 
 </script>
   
-<%= form_tag({:controller => "home", :action => "index" }, { :method => "post", :class => 'form-horizontal' }) do %>  
+<%= form_tag({:controller => "users", :action => "send_email" }, { :method => "post", :class => 'form-horizontal' }) do %>  
   <table>
   	<tr>
   		<td>
@@ -49,22 +54,24 @@
   			<div>
   				<h2>&emsp;&emsp;&emsp;&emsp;Leave Request</h2>
   
-          <div style="width:110px">Requested By:</div> <input type=text size=20 value="<%= @user.user_name.capitalize %>" disabled><br>
-  
+                <div style="width:110px">Requested By:</div>
+                <input type=text size=20 name="username" value="<%= @user.user_name.capitalize %>" ><br>
   				<br>
   				<label> From Date </label>
-  				<input type="text" size=20 id="fromdate" class="date" >
+  				<input type="text" size=20 name="fromdate" id="fromdate" class="date" >
   				<br><br>
   				<label> To Date </label>
-  				<input type="text" size=20 id="todate" class="date">
+  				<input type="text" size=20 name="todate" id="todate" class="date">
   				<br><br>
-  				No. of days <input type="text" id="noOfDays" size=20 on>
+          <label>Total leaves</label>
+  				<input type="text" name="noofdays" id="noOfDays" size=20 >
   				<br><br>
-  				Description: <textarea name="Name" rows="8" cols="40"></textarea>
+          <label>Leave Description </label>
+          <textarea name="Name" rows="8" cols="40"></textarea>
   				<br><br>
   				<%= submit_tag "Send For Approval", :class => 'btn btn-primary' %>  				  			
   				&emsp; 				          
-          <%= submit_tag "Clear", :class => 'btn', :type => 'reset' %>  				
+                <%= submit_tag "Clear", :class => 'btn', :type => 'reset' %>  				
   			</div>
   
   		</td>
