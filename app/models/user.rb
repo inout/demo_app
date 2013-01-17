@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   def role?(role)
     return self.roles
   end
+
+  def save
+    Notifier.support_notification.deliver!
+    return true
+  end
 end
