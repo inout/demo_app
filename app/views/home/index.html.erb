@@ -1,5 +1,23 @@
 <div class="container">
-  <center>
-    <h1>Welcome!! <%= current_user.user_name.capitalize %></h1>
-  </center>
-</div>    
+	<center>
+		<h1>Welcome!! <%= current_user.user_name.capitalize %></h1>
+
+		<div class="row">
+			<div class="span11">
+				<div id="myCarousel" class="carousel slide">
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+							<div class="item active"><%= image_tag "facility.png" %></div>
+							<div class="item"><%= image_tag "driven_solutions.png" %></div>
+							<div class="item"><%= image_tag "offshore.png" %></div>
+							<div class="item"><%= image_tag "value_for_money.png" %></div>
+							<div class="item"><%= image_tag "customer_success.png" %></div>
+					</div>
+					<!-- Carousel nav -->
+					<a class="carousel-control left" href="#myCarousel" data-slide="prev" data-interval="4000">&lsaquo;</a>
+					<a class="carousel-control right" href="#myCarousel" data-slide="next" data-interval="4000">&rsaquo;</a>
+				</div>
+			</div>
+		</div>
+	</center>
+</div>
