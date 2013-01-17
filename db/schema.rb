@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112081922) do
+ActiveRecord::Schema.define(:version => 20130117153617) do
 
   create_table "leaves", :force => true do |t|
     t.integer  "user_id"
@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(:version => 20130112081922) do
     t.float    "leaves_remaining"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "no_of_days"
   end
-
-  add_index "leaves", ["user_id"], :name => "index_leaves_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string "name"
@@ -64,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20130112081922) do
     t.boolean  "is_active"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "email"
+    t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
