@@ -1,7 +1,8 @@
 class Notifier < ActionMailer::Base
-  def support_notification
-    mail(:to => "inoutdemo123@gmail.com", 
-         :from => "inoutdemo123@gmail.com", # Created demo gmail account for sending email
+  def support_notification(user)
+    @user = user
+    mail(:to => "rohit19kadam@gmail.com",
+         :from =>"\"#{@user.first_name} #{@user.last_name}\" #{GlobalConstant::EMAIL}",   
          :subject => "Leave request ")
   end 
 end 

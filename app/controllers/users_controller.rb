@@ -23,17 +23,10 @@ class UsersController < ApplicationController
 		end
   end
 
-  def send_for_approval
-    @user_name = params[:username]
-    @from_date = params[:fromdate]
-    @to_date = params[:todate]
-    @no_of_days = params[:noofdays]
-    @name = params[:Name]
-  end
-
   def send_email
+    @user= User.find params[:id]
     @users = User.new
-    if @users.save
+    if @users.send_email(@user)
       redirect_to(:controller => 'home', :action =>'index')
     end
   end
