@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     return self.roles
   end
 
-  def send_email(user)
-      Notifier.support_notification(user).deliver!
+  def send_email(user, request_hash)
+      Notifier.support_notification(user, request_hash).deliver!
       return true
   end
 end

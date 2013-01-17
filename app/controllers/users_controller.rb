@@ -24,9 +24,16 @@ class UsersController < ApplicationController
   end
 
   def send_email
-    @user= User.find params[:id]
+    @user = User.find params[:id]
+    @request_hash = {
+        "from_date" => params[:fromdate],
+        "to_date" => params[:todate],
+        "description" => params[:description],
+        "no_of_days" => params[:noofdays]
+    }
+
     @users = User.new
-    if @users.send_email(@user)
+    if @users.send_email(@user, @request_hash)
       redirect_to(:controller => 'home', :action =>'index')
     end
   end
