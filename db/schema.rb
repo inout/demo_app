@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117153617) do
+ActiveRecord::Schema.define(:version => 20130121153357) do
 
   create_table "leaves", :force => true do |t|
     t.integer  "user_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130117153617) do
   create_table "teams_users", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "team_id"
+    t.boolean "team_lead", :default => false
   end
 
   add_index "teams_users", ["team_id"], :name => "index_teams_users_on_team_id"

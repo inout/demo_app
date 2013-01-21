@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :birth_date, :first_name, :last_name, :user_name, :contact_no, :is_active, :joining_date
   has_many :leave
   has_and_belongs_to_many :roles
+  has_and_belongs_to_many :teams
 
   def role?(role)
     return self.roles
